@@ -4,6 +4,7 @@ on:
   workflow_dispatch:
 
   schedule:
+    - cron: '55 21 * * *'
     - cron: '00 22 * * *'
 
 jobs:
