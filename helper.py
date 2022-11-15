@@ -106,9 +106,20 @@ class CSULibrary(object):
             'access_token']
         
         #随机打乱
-        import random
-        random.shuffle(self.seatid)
-        
+        try:
+            test_log=r"test_log.txt"
+            FILE=open(test_log,'w')
+            import random
+            random.shuffle(self.seatid)
+            print(self.seatid,file=FILE)
+            FILE.close()
+        except:
+            test_log=r"test_log.txt"
+            FILE=open(test_log,'w')
+            print("FAIL LINE 118",file=FILE)
+            FILE.close()
+            
+      
         for i in range(0, len(self.seatid)):
             url = "http://libzw.csu.edu.cn/api.php/spaces/" + \
                 str(self.seatid[i])+"/book"
